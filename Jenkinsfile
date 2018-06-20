@@ -1,10 +1,8 @@
 pipeline {
   agent any
-
   environment {
     MAJOR_VERSION = 1
   }
-
   stages {
     stage('Unit Tests') {
       steps {
@@ -20,6 +18,11 @@ pipeline {
         success {
           archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
         }
+      }
+    }
+    stage('publish') {
+      steps {
+        sh "cp dist/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
       }
     }
   }
