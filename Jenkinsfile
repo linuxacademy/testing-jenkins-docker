@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Test on CentOS') {
       agent {
-        docker 'fabric8/java-centos-openjdk8-jdk:1.4.0'        
+        docker 'fabric8:java-centos-openjdk8-jre'        
       }
       steps {
         sh "curl $JENKINS_IP/rectangles/all/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar -o rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
