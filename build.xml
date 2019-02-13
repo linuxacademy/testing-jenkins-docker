@@ -9,7 +9,7 @@
   <property name="dist.dir" location="dist" />
   
 
-  <path id="classpath">
+  <path id="class.path">
     <pathelement location="./lib/junit-4.10.jar" />
     <pathelement location="${build.dir}" />
   </path>
@@ -29,7 +29,7 @@
   <!-- Compiles the java code (including the usage of library for JUnit -->
   <target name="compile" depends="clean, makedir">
     <javac srcdir="${src.dir}" destdir="${build.dir}">
-      <classpath refid="classpath" />
+      <classpath refid="class.path" />
     </javac>
   </target>
 
