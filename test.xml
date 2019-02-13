@@ -6,7 +6,7 @@
   <property name="build.dir" location="bin" />
   <property name="report.dir" location="reports" />
 
-  <path id="classpath">
+  <path id="class.path">
     <pathelement location="./lib/junit-4.10.jar" />
     <pathelement location="${build.dir}" />
   </path>
@@ -23,13 +23,13 @@
 
   <target name="compile" depends="makedir">
     <javac srcdir="${src.dir}" destdir="${build.dir}">
-      <classpath refid="classpath" />
+      <classpath refid="class.path" />
     </javac>
   </target>
 
   <target name="test" depends="clean, makedir, compile">
     <junit printsummary="yes" fork="true">
-      <classpath refid="classpath" />
+      <classpath refid="class.path" />
       <test name="RectangleTest" todir="${report.dir}" outfile="result">
         <formatter type="xml" />
       </test>
