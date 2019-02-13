@@ -33,7 +33,7 @@
     </javac>
   </target>
 
-  <!--Creates the deployable jar file  -->
+  <!-- Creates the deployable jar file  
   <target name="jar" depends="compile">
     <jar destfile="${dist.dir}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar" basedir="${build.dir}">
       <manifest>
@@ -46,4 +46,6 @@
     <description>Main target</description>
   </target>
 
+-->
+  
 </project>
