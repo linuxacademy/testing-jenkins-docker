@@ -23,13 +23,13 @@
 
   <target name="compile" depends="makedir">
     <javac srcdir="${src.dir}" destdir="${build.dir}">
-      <classpath refid="class.path" />
+      <classpath refid="classpath" />
     </javac>
   </target>
 
   <target name="test" depends="clean, makedir, compile">
     <junit printsummary="yes" fork="true">
-      <classpath refid="class.path" />
+      <classpath refid="classpath" />
       <test name="RectangleTest" todir="${report.dir}" outfile="result">
         <formatter type="xml" />
       </test>
