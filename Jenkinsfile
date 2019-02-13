@@ -21,8 +21,7 @@ pipeline {
       }
     }
     stage('publish') {
-      steps {
-        sh 'mkdir -p /var/www/html/rectangles/all/'
+      steps {       
         sh "cp dist/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
       }
     }
