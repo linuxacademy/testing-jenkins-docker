@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment {
     MAJOR_VERSION = 1
+    JENKINS_IP = 52.31.133.94
   }
   stages {
     stage('Unit Tests') {
