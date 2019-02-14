@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Test Docker') {
       steps {
-        docker run hello-world 
+        docker run 'hello-world'
       }
     } 
    /*
