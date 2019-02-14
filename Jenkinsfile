@@ -26,8 +26,8 @@ pipeline {
       }
     }
     stage('Test Docker') {
-      steps {
-        docker run 'hello-world'
+      agent {
+        docker {image 'hello-world'}
       }
     } 
    /*
