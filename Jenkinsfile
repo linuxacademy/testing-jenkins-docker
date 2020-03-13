@@ -12,6 +12,7 @@ pipeline {
         sh 'ant -f test.xml -v'
         junit 'reports/result.xml'
       }
+    }
     stage('Unit Tests - CentOS') {
       agent {
         docker { image 'fabric8/java-centos-openjdk8-jdk:1.4.0' }
