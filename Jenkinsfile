@@ -41,26 +41,28 @@ pipeline {
       }
     }
 
-    stage('run on debian'){
-      agent{
-        docker 'openjdk:8u252-jre'
-      }
-
-      steps{
-        sh "curl $JENKINS_IP/rectangles/all/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar -o rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
-        sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
-      }
-    }
-
     stage('run on centos'){
       agent{
         docker 'fabric8/java-centos-openjdk8-jdk:1.4.0'
       }
 
       steps{
-        sh "curl $JENKINS_IP/rectangles/all/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar -o rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
+        sh "curl http://18.140.113.66/rectangles/all/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar -o rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
       }
     }
+
+    stage('run on debian'){
+      agent{
+        docker 'openjdk:8u252-jre'
+      }
+
+      steps{
+        sh "curl http://18.140.113.66/rectangles/all/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar -o rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
+        sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
+      }
+    }
+
+
   }
 }
